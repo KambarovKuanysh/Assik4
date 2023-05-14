@@ -1,3 +1,4 @@
+import java.util.Objects;
 import java.util.Random;
 
 
@@ -38,6 +39,18 @@ class MyTestingClass {
         long temp = Double.doubleToLongBits(salary);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return Math.abs(result);
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof MyTestingClass)) {
+            return false;
+        }
+        MyTestingClass other = (MyTestingClass) obj;
+        return jobId == other.jobId && Objects.equals(fullName, other.fullName)
+                && Double.compare(salary, other.salary) == 0;
     }
     private int stringHashCode(String s) {
         int hash = 0;
