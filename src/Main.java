@@ -12,6 +12,10 @@ public class Main {
             hashTable.put(new MyTestingClass(jobId, name, salary), "Full name: " + name +
                     "\nJob: " + jobId + "\nSalary " + salary);
         }
+        int[] bucketSize = hashTable.getBucketSize();
+        for (int i = 0; i < bucketSize.length; i++) {
+            System.out.println("Bucket " + i + ": " + bucketSize[i] + " elements");
+        }
     }
 }
 

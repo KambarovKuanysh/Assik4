@@ -30,6 +30,7 @@ public class HashTable<K, V> {
         chain[index].add(new HashNode<K, V>(key, value));
         size++;
     }
+
     public V get(K key) {
         int index = hash(key);
         if (chain[index] == null) return null;
@@ -72,5 +73,14 @@ public class HashTable<K, V> {
 
     public int getSize() {
         return size;
+    }
+    public int[] getBucketSize() {
+        int[] bucketSize = new int[M];
+        for (int i = 0; i < M; i++) {
+            if (chain[i] != null) {
+                bucketSize[i] = chain[i].size();
+            }
+        }
+        return bucketSize;
     }
 }
