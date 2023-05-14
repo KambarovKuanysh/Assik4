@@ -12,7 +12,7 @@ public int hashCode() {
     }
 ```
 
-### hashCode
+### stringHasgCode
 Description: This function was designed to be used in hashCode method instead of using Object.hash()
 Code:
 ```java
