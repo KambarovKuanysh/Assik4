@@ -1,4 +1,6 @@
+import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Set;
 
 public class HashTable<K, V> {
     private LinkedList<HashNode<K, V>>[] chain;
@@ -83,4 +85,16 @@ public class HashTable<K, V> {
         }
         return bucketSize;
     }
+    public void replace(K key, V oldValue, V newValue){
+        for (LinkedList<HashNode<K, V>> list : chain) {
+            if (list != null) {
+                for (HashNode<K, V> node : list) {
+                    if(node.getKey().equals(key) && node.getValue().equals(oldValue)){
+                        node.setValue(newValue);
+                    }
+                }
+            }
+        }
+    }
+
 }

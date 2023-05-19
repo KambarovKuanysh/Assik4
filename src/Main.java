@@ -3,7 +3,14 @@ import java.util.Random;
 
 
 public class Main {
+
     public static void main(String[] args) {
+
+        Main.defenceTest();
+        System.out.println(Main.divider);
+        Main.mainTask();
+    }
+    public static void mainTask(){
         HashTable hashTable = new HashTable<MyTestingClass, String>();
         Random rand = new Random();
         for (int i = 0; i < 10000; i++) {
@@ -18,8 +25,25 @@ public class Main {
             System.out.println("Bucket " + i + ": " + bucketSize[i] + " elements");
         }
     }
-}
+    public static void defenceTest(){
 
+        System.out.println("> Replace for String (old: Nursultan, new: Khaimuldin)");
+
+        HashTable defenceS = new HashTable<Integer, String>();
+        defenceS.put(1, "Nursultan");
+        defenceS.replace(1,"Nursultan", "Khaimuldin");
+        System.out.println(defenceS.get(1));
+
+        System.out.println("> Replace for integer (old: 10, new: 100)");
+
+        HashTable defenceI = new HashTable<Integer, Integer>();
+        defenceI.put(1, 10);
+        defenceI.replace(1,10, 100);
+        System.out.println(defenceI.get(1));
+
+    }
+    static String divider = "=====================================";
+}
 class MyTestingClass {
     public int jobId;
     public String fullName;
@@ -59,4 +83,5 @@ class MyTestingClass {
         }
         return Math.abs(hash);
     }
+
 }

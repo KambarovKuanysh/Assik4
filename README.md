@@ -1,3 +1,22 @@
+### defence: replace
+Description: This function seeks for key and value. And if it matches up changes it
+Code:
+```java
+public void replace(K key, V oldValue, V newValue){
+        for (LinkedList<HashNode<K, V>> list : chain) {
+            if (list != null) {
+                for (HashNode<K, V> node : list) {
+                    if(node.getKey().equals(key) && node.getValue().equals(oldValue)){
+                        node.setValue(newValue);
+                        }
+                    }
+                }
+            }
+        }
+```
+
+
+
 ### hashCode
 Description: This function takes 3 params from MyTestingClass @jobId @fullname @salary and conpiles it to hash by primary moves. Uses written stringToHashCode method.
 Code:
